@@ -9,7 +9,7 @@ Includes...
 
 ### Deploy AKS-Engine
 
-aks-engine.exe generate .\kubernetes-windows.json
+aks-engine.exe generate .\kubernetes-windows.json --force-overwrite
 
 ### Then deploy the ARM template...
 
