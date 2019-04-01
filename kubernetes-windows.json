@@ -1,0 +1,67 @@
+{
+  "apiVersion": "vlabs",
+  "properties": {
+    "orchestratorProfile": {
+      "orchestratorType": "Kubernetes",
+      "orchestratorRelease": "1.14"
+    },
+    "masterProfile": {
+      "count": 1,
+      "dnsPrefix": "aksengine-01",
+      "vmSize": "Standard_D2_v3",
+      "storageProfile": "StorageAccount"
+    },
+    "agentPoolProfiles": [
+      {
+        "name": "windowspool2",
+        "count": 1,
+        "vmSize": "Standard_D2_v3",
+        "storageProfile" : "ManagedDisks",
+        "availabilityProfile": "AvailabilitySet",
+        "osType": "Windows",
+        "osDiskSizeGB": 128,
+        "diskSizesGB": [128],
+        "extensions": [
+            {
+                "name": "winrm"
+            }
+        ]
+      },
+      {
+        "name": "linuxpool1",
+        "count": 1,
+        "vmSize": "Standard_D2_v3",
+        "availabilityProfile": "AvailabilitySet"
+      }
+    ],
+    "windowsProfile": {
+      "adminUsername": "adminUser",
+      "adminPassword": "Password_123",
+      "windowsPublisher": "MicrosoftWindowsServer",
+      "windowsOffer": "WindowsServer",
+      "windowsSku": "2019-Datacenter-Core-with-Containers-smalldisk",
+      "imageVersion": "2019.0.20181107",
+      "sshEnabled": true
+    },
+    "linuxProfile": {
+      "adminUsername": "adminUser",
+      "ssh": {
+        "publicKeys": [
+          {
+            "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDG47av0y8/mhJZggbxNocKQ2AbzBOgff4P9F40G8X3coHmPYHoYsFGwcBv06OfxNvHyVtPS/UezGiC3IzvrxndkFl3awnoLfOXJiZHsEXXeo88WEbQlFykPmVmaaknqOMbdwftTdeOoOJJ+W2Lo3yAVF3aEno14uB3D9tRGAb+wCs+CXOkw8WLvdhed6HIpKS0SeD5h4zS0h80tnfSmyTVpl8r2tnb4m+qrUtIwEXTO9ARgxuu0J4ZiWRUgPh+CDoOw/qOtq6B4bFLMoaAnqXw0EuZsFC6t7E7aGKBZc0LssrYcTgr1RQ1/yuiJJMs7QQ8mTOXw3plSjJOi583R9Fp neil.moorthy@asseenonscreen@ASGLH-WL19000"
+          }
+        ]
+      }
+    },
+    "servicePrincipalProfile": {
+      "clientId": "b4718618-b4f9-4194-b23d-88c09269dfb7b4718618-b4f9-4194-b23d-88c09269dfb7",
+      "secret": "xyz"
+    },
+    "extensionProfiles": [
+      {
+        "name": "winrm",
+        "version": "v1"
+      }
+    ]
+  }
+}
