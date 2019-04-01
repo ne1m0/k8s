@@ -10,7 +10,7 @@ aks-engine.exe generate .\kubernetes-windows.json
 
 Then deploy the ARM template...
 
-# Login-AzureRMAccount
-# Set-AzureRMContext "<subscription name>"
+Login-AzureRMAccount
+Set-AzureRMContext "<subscription name>"
 
 New-AzureRmResourceGroupDeployment -ResourceGroupName "aksengine-rg" -TemplateFile "./_output/aksengine-01/azuredeploy.json" -TemplateParameterFile "./_output/aksengine-01/azuredeploy.parameters.json"
